@@ -1,108 +1,269 @@
-/* frontend/css/styles.css */
+/* css/styles.css */
 
-body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
-  background: #f8f9fa;
-  color: #333;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
 }
 
-header {
+body {
+  background: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.navbar {
+  background: linear-gradient(90deg, #ff7e5f, #feb47b);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  box-shadow: 0 4px 10px rgba(255,126,95,0.3);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar h1 {
+  font-weight: 600;
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+}
+
+.navbar nav a {
+  color: white;
+  margin-left: 1.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.navbar nav a:hover {
+  color: #fffde7;
+  text-shadow: 0 0 8px #fffde7;
+}
+
+.section-title {
   text-align: center;
-  margin-bottom: 20px;
+  font-size: 2rem;
+  margin: 2rem 0 1rem 0;
+  color: #ff7e5f;
+  text-shadow: 1px 1px 3px #feb47b;
+}
+
+.gallery-section, .cart-section, .checkout-section {
+  max-width: 900px;
+  margin: 0 auto 3rem auto;
+  padding: 0 1rem;
 }
 
 .gallery {
   display: flex;
-  gap: 15px;
+  gap: 1.2rem;
   overflow-x: auto;
-  padding-bottom: 15px;
+  scroll-behavior: smooth;
+  padding-bottom: 1rem;
 }
 
-.gallery .food-item {
-  flex: 0 0 auto;
-  width: 150px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 5px;
-  text-align: center;
+.gallery::-webkit-scrollbar {
+  height: 10px;
+}
+
+.gallery::-webkit-scrollbar-thumb {
+  background: #ff7e5f;
+  border-radius: 10px;
+}
+
+.gallery-item {
+  min-width: 200px;
   background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.1);
   cursor: pointer;
-  transition: box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.gallery .food-item:hover {
-  box-shadow: 0 0 10px #888;
+.gallery-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 20px rgba(255,126,95,0.3);
 }
 
-.food-item img {
+.gallery-item img {
   width: 100%;
-  border-radius: 8px;
+  display: block;
+  border-radius: 12px 12px 0 0;
+  object-fit: cover;
+  height: 140px;
 }
 
 .price-tag {
-  margin-top: 5px;
-  font-weight: bold;
-  color: #007bff;
-}
-
-#view-cart-btn {
-  display: block;
-  margin: 10px auto;
-  padding: 10px 15px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-#cart-section, #checkout-section {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 15px;
-  background: white;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: #ff7e5fcc;
+  color: white;
+  font-weight: 700;
+  padding: 0.3rem 0.7rem;
   border-radius: 8px;
-  border: 1px solid #ccc;
+  box-shadow: 0 0 8px #feb47bcc;
+  text-shadow: 0 0 3px rgba(0,0,0,0.3);
 }
 
-.hidden {
-  display: none;
+.gallery-item .food-name {
+  padding: 0.7rem 1rem;
+  font-weight: 600;
+  text-align: center;
+  color: #444;
+  user-select: none;
 }
 
-#cart-items {
-  margin-bottom: 15px;
+.cart-section {
+  background: white;
+  border-radius: 12px;
+  padding: 1rem 2rem;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.cart-list {
+  max-height: 250px;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
 }
 
 .cart-item {
   display: flex;
   justify-content: space-between;
-  padding: 5px 0;
-  border-bottom: 1px solid #ddd;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #f3f3f3;
+  font-weight: 500;
+  color: #555;
 }
 
-.cart-item:last-child {
-  border-bottom: none;
+.cart-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ff7e5f;
 }
 
-button {
-  background-color: #007bff;
+.btn {
+  background: #ff7e5f;
   border: none;
+  padding: 0.7rem 1.8rem;
+  border-radius: 30px;
   color: white;
-  padding: 8px 12px;
-  border-radius: 5px;
+  font-weight: 700;
   cursor: pointer;
+  box-shadow: 0 6px 10px rgba(255,126,95,0.3);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
-button:hover {
-  background-color: #0056b3;
+.btn:hover {
+  background: #feb47b;
+  box-shadow: 0 8px 14px rgba(254,180,123,0.5);
+}
+
+.checkout-section {
+  max-width: 400px;
+  margin: 0 auto 3rem auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(255,126,95,0.2);
+}
+
+.checkout-section.hidden {
+  display: none;
 }
 
 form label {
   display: block;
-  margin-bottom: 10px;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: #444;
 }
 
-input[type="text"],
-input[type="tel"] {
+form input {
   width: 100%;
-  padding: 8px;
-  box-sizing: border-box;
+  padding: 0.6rem 1rem;
+  margin-bottom: 1.2rem;
+  border: 1.8px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+form input:focus {
+  outline: none;
+  border-color: #ff7e5f;
+  box-shadow: 0 0 8px #ff7e5faa;
+}
+
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ff7e5f;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  box-shadow: 0 6px 15px rgba(255,126,95,0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  z-index: 2000;
+}
+
+.toast.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Loader */
+
+.loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5000;
+  transition: opacity 0.5s ease;
+}
+
+.loader-wrapper.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loader {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #ff7e5f;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1.2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
   }
