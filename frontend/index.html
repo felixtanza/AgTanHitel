@@ -1,0 +1,49 @@
+<!-- frontend/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AgTan Hotel - Order Food</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header>
+    <h1>AgTan Hotel Food Order</h1>
+  </header>
+
+  <main>
+    <section id="gallery" class="gallery">
+      <!-- Images with prices will be rendered here -->
+    </section>
+
+    <button id="view-cart-btn">View Cart</button>
+
+    <section id="cart-section" class="hidden">
+      <h2>Your Cart</h2>
+      <div id="cart-items"></div>
+      <button id="checkout-btn">Checkout</button>
+      <button id="close-cart-btn">Close</button>
+    </section>
+
+    <section id="checkout-section" class="hidden">
+      <h2>Confirm Your Order</h2>
+      <form id="checkout-form">
+        <label>
+          Name:
+          <input type="text" id="name" required />
+        </label>
+        <label>
+          Phone Number:
+          <input type="tel" id="phone" required />
+        </label>
+        <button type="submit">Confirm & Pay</button>
+      </form>
+      <div id="loader" class="hidden">Processing payment...</div>
+      <div id="payment-message"></div>
+    </section>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+  </html>
