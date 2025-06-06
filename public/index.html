@@ -1,49 +1,40 @@
-<!-- frontend/index.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AgTan Hotel - Order Food</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgTan Hotel Menu</title>
   <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <header>
-    <h1>AgTan Hotel Food Order</h1>
-  </header>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script defer src="script.js"></script>
+</head><body>
+  <div class="loader-wrapper" id="loader">
+    <div class="loader"></div>
+  </div>  <header class="navbar">
+    <h1>AgTan Hotel</h1>
+    <nav>
+      <a href="#menu">Menu</a>
+      <a href="#cart">Cart</a>
+    </nav>
+  </header>  <section id="menu" class="gallery-section">
+    <h2 class="section-title">Our Delicious Menu</h2>
+    <div class="gallery" id="food-gallery"></div>
+  </section>  <section id="cart" class="cart-section">
+    <h2 class="section-title">Your Cart</h2>
+    <div class="cart-list" id="cart-list"></div>
+    <div class="cart-summary">
+      <p>Total: <span id="cart-total">KES 0</span></p>
+      <button class="btn" id="checkout-btn">Proceed to Checkout</button>
+    </div>
+  </section>  <section id="checkout" class="checkout-section hidden">
+    <h2 class="section-title">Checkout</h2>
+    <form id="checkout-form">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required /><label for="phone">Phone Number (07...)</label>
+  <input type="tel" id="phone" name="phone" required />
 
-  <main>
-    <section id="gallery" class="gallery">
-      <!-- Images with prices will be rendered here -->
-    </section>
+  <button class="btn" type="submit">Pay Now</button>
+</form>
 
-    <button id="view-cart-btn">View Cart</button>
-
-    <section id="cart-section" class="hidden">
-      <h2>Your Cart</h2>
-      <div id="cart-items"></div>
-      <button id="checkout-btn">Checkout</button>
-      <button id="close-cart-btn">Close</button>
-    </section>
-
-    <section id="checkout-section" class="hidden">
-      <h2>Confirm Your Order</h2>
-      <form id="checkout-form">
-        <label>
-          Name:
-          <input type="text" id="name" required />
-        </label>
-        <label>
-          Phone Number:
-          <input type="tel" id="phone" required />
-        </label>
-        <button type="submit">Confirm & Pay</button>
-      </form>
-      <div id="loader" class="hidden">Processing payment...</div>
-      <div id="payment-message"></div>
-    </section>
-  </main>
-
-  <script src="script.js"></script>
-</body>
-  </html>
+  </section>  <div class="toast" id="toast">Order placed! Await STK push...</div>
+</body></html>
