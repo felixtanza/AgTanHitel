@@ -18,7 +18,7 @@ app.use('/api/order', orderRoutes);
 
 // Fallback to index.html for any unmatched route (for frontend routing)
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/index.html'));
+  res.sendFile(path.join(__dirname, './index.html'));
 });
 
 const PORT = process.env.PORT || 5000;
