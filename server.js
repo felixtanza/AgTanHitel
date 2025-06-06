@@ -11,14 +11,14 @@ app.use(cors());
 app.use(express.json());
 
 // Serve static files from frontend
-app.use(express.static(path.join(__dirname, '../frontend')));
+app.use(express.static(path.join(__dirname, "public")));
 
 // API routes
 app.use('/api/order', orderRoutes);
 
 // Fallback to index.html for any unmatched route (for frontend routing)
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, './index.html'));
+  res.sendFile(path.join(__dirname, "public","index.html"));
 });
 
 const PORT = process.env.PORT || 5000;
